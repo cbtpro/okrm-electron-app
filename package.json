@@ -24,7 +24,8 @@
     "electron": "^19.0.7"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-tabs": "^1.0.1"
   },
   "config": {
     "forge": {
