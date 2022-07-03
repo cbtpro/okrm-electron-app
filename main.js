@@ -1,5 +1,6 @@
-const { app, BrowserWindow, dialog, ipcMain, } = require('electron');
+const { app, BrowserWindow, dialog, ipcMain, Menu } = require('electron');
 const path = require('path');
+const { createMenu } = require('./src/menu');
 
 function handleSetTitle (event, title) {
   const webContents = event.sender
@@ -32,6 +33,8 @@ const createWindow = () => {
   //   win.setTitle(title)
   // })
 
+  const menu = createMenu(mainWindow);
+  Menu.setApplicationMenu(menu);
   mainWindow.loadFile('index.html');
 
   // mainWindow.loadURL('https://github.com');

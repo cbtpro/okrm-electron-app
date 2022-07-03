@@ -14,3 +14,10 @@ btn.addEventListener('click', async () => {
   const filePath = await window.electronAPI.openFile()
   filePathElement.innerText = filePath
 })
+
+window.electronAPI.handleCounter((event, value) => {
+  const oldValue = Number(counter.innerText)
+  const newValue = oldValue + value
+  counter.innerText = newValue
+  event.sender.send('counter-value', newValue)
+})

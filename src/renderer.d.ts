@@ -4,6 +4,7 @@ export interface IElectronAPI {
   loadPreferences: () => Promise<void>;
   setTitle: (title: string) => void;
   openFile: () => string;
+  handleCounter: (callback: (event, value: number) => void) => Electron.IpcRenderer
 }
 
 declare global {
