@@ -3,7 +3,7 @@ export interface IElectronAPI {
   doAThing: () => void;
   loadPreferences: () => Promise<void>;
   setTitle: (title: string) => void;
-  openFile: () => void;
+  openFile: () => string;
 }
 
 declare global {
