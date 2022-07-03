@@ -1,4 +1,4 @@
-const { contextBridge, } = require('electron');
+const { contextBridge, ipcRenderer } = require('electron');
 
 window.addEventListener('DOMContentLoaded', () => {
   const replaceText = (selector, text) => {
@@ -14,10 +14,12 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 
-contextBridge.exposeInMainWorld('myAPI', {
+contextBridge.exposeInMainWorld('electronAPI', {
   desktop: true,
   doAThing: () => {
     console.log('doAThing!');
   },
   loadPreferences: () => ipcRenderer.invoke('load-prefs'),
+  setTitle: (title) => ipcRenderer.send('set-title', title),
+  openFile: () => ipcRenderer.invoke('dialog:openFile'),
 });
