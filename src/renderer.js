@@ -4,7 +4,9 @@ const setButton = document.getElementById('btn')
 const titleInput = document.getElementById('title')
 setButton.addEventListener('click', () => {
   const title = titleInput.value
-  window.electronAPI.setTitle(title)
+  if (title) {
+    window.electronAPI.setTitle(title)
+  }
 });
 
 const btn = document.getElementById('open-file-btn')
